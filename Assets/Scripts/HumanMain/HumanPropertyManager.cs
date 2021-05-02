@@ -45,7 +45,7 @@ public class HumanPropertyManager : MonoBehaviour
     {
         var path = Path.Combine(Application.persistentDataPath, UseDataId.id + ".data");
         var content = "0," + startTime + "," + property.ToString();
-        File.WriteAllText(path, content);
+        File.WriteAllText(path, content, System.Text.Encoding.UTF8);
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ public class HumanPropertyManager : MonoBehaviour
     private void LoadData()
     {
         var path = Path.Combine(Application.persistentDataPath, UseDataId.id + ".data");
-        var content = File.ReadAllText(path).Split(',');
+        var content = File.ReadAllText(path, System.Text.Encoding.UTF8).Split(',');
         if(content[0] != "0")
         {
             Debug.LogError("人の能力じゃない！");
