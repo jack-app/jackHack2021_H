@@ -29,6 +29,9 @@ public class PropertyAdder : MonoBehaviour
     /// </summary>
     public void OnClicked()
     {
-        manager.Property.AddProperty(propertyName, coefficient * int.Parse(text.text));
+        if(int.TryParse(text.text, out var amount))
+        {
+            manager.Property.AddProperty(propertyName, coefficient * amount);
+        }
     }
 }

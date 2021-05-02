@@ -13,6 +13,9 @@ public class HumanResultLoader : MonoBehaviour
     private Text grade;
 
     [SerializeField]
+    private RawImage gradeBack;
+
+    [SerializeField]
     private Text comment;
 
     [SerializeField]
@@ -44,26 +47,31 @@ public class HumanResultLoader : MonoBehaviour
         if(sum >= 95 * 3)
         {
             grade.text = "S";
+            gradeBack.color = Color.yellow;
             comment.text = sComment;
         }
         else if(sum >= 80 * 3)
         {
             grade.text = "A";
+            gradeBack.color = new Color(0.7f, 0.7f, 0.7f);
             comment.text = aComment;
         }
         else if(sum >= 70 * 3)
         {
             grade.text = "B";
+            gradeBack.color = new Color(0.7f, 0.7f, 0.7f);
             comment.text = bComment;
         }
         else if(sum >= 60 * 3)
         {
             grade.text = "C";
+            gradeBack.color = new Color(0.764151f, 0.3340157f, 0.118948f);
             comment.text = cComment;
         }
         else
         {
             grade.text = "F";
+            gradeBack.color = Color.clear;
             comment.text = fComment;
         }
     }
