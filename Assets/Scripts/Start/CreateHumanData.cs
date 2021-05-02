@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 人間の初期データを作成するクラス。
@@ -17,5 +18,6 @@ public class CreateHumanData : MonoBehaviour
         var path = Path.Combine(Application.persistentDataPath, Guid.NewGuid().ToString() + ".data");
         var content = "0," + DateTime.Now.ToString() + ",60,60,60";
         File.WriteAllText(path, content, System.Text.Encoding.UTF8);
+        SceneManager.LoadScene(SceneName.HumanMain.ToString());
     }
 }
