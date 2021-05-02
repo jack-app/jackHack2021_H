@@ -1,31 +1,31 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ”\—Í’l‚ğ•Ï‰»‚³‚¹‚éB
+/// èƒ½åŠ›å€¤ã‚’å¤‰åŒ–ã•ã›ã‚‹ã€‚
 /// </summary>
 public class PropertyAdder : MonoBehaviour
 {
-    /// <value="propertyName">‘€ì‚·‚é”\—Í–¼B</value> 
+    /// <value="propertyName">æ“ä½œã™ã‚‹èƒ½åŠ›åã€‚</value> 
     [SerializeField]
     private HumanPropertyName propertyName;
 
-    /// <value="coefficient">‰ñ”‚É‘Î‚·‚éŒW”B</value> 
+    /// <value="coefficient">å›æ•°ã«å¯¾ã™ã‚‹ä¿‚æ•°ã€‚</value> 
     [SerializeField]
     private float coefficient;
 
-    /// <value="text">‰ñ”‚Ì“ü‚Á‚½ƒeƒLƒXƒgB</value> 
+    /// <value="text">å›æ•°ã®å…¥ã£ãŸãƒ†ã‚­ã‚¹ãƒˆã€‚</value> 
     [SerializeField]
     private Text text;
 
-    /// <value="manager">lŠÔ‚Ì”\—Í’l‚Ìƒ}ƒl[ƒWƒƒ[B</value> 
+    /// <value="manager">äººé–“ã®èƒ½åŠ›å€¤ã®ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã€‚</value> 
     [SerializeField]
     private HumanPropertyManager manager;
 
     /// <summary>
-    /// ƒNƒŠƒbƒN‚µ‚½‚Æ‚«‚ÌƒCƒxƒ“ƒg‚É“o˜^‚µ‚Ä‚ËB
+    /// ã‚¯ãƒªãƒƒã‚¯ã—ãŸã¨ãã®ã‚¤ãƒ™ãƒ³ãƒˆã«ç™»éŒ²ã—ã¦ã­ã€‚
     /// </summary>
     public void OnClicked()
     {

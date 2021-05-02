@@ -1,30 +1,30 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// lŠÔ‚Ì”\—Í’l‚Ìƒf[ƒ^B
+/// äººé–“ã®èƒ½åŠ›å€¤ã®ãƒ‡ãƒ¼ã‚¿ã€‚
 /// </summary>
 public class HumanProperty
 {
     /// <summary>
-    /// ƒf[ƒ^‚ÌIdB
+    /// ãƒ‡ãƒ¼ã‚¿ã®Idã€‚
     /// </summary>
     public string Id { get; private set; }
 
     /// <summary>
-    /// ˜r‚Ì‹Ø“÷—ÊB
+    /// è…•ã®ç­‹è‚‰é‡ã€‚
     /// </summary>
     public float Arm { get; private set; }
 
     /// <summary>
-    /// • ”w‹Ø‚Ì‹Ø“÷—ÊB
+    /// è…¹èƒŒç­‹ã®ç­‹è‚‰é‡ã€‚
     /// </summary>
 
     public float Middle { get; private set; }
 
     /// <summary>
-    /// ‹r‚Ì‹Ø“÷—ÊB
+    /// è„šã®ç­‹è‚‰é‡ã€‚
     /// </summary>
     public float Leg { get; private set; }
 
@@ -37,10 +37,10 @@ public class HumanProperty
     }
 
     /// <summary>
-    /// ”\—Í’l‚ğ•Ï‰»‚³‚¹‚éB
+    /// èƒ½åŠ›å€¤ã‚’å¤‰åŒ–ã•ã›ã‚‹ã€‚
     /// </summary>
-    /// <param name="property">•Ï‰»‚³‚¹‚é”\—Í’lB</param>
-    /// <param name="add">‰ÁZ‚·‚é—ÊB</param>
+    /// <param name="property">å¤‰åŒ–ã•ã›ã‚‹èƒ½åŠ›å€¤ã€‚</param>
+    /// <param name="add">åŠ ç®—ã™ã‚‹é‡ã€‚</param>
     public void AddProperty(HumanPropertyName property, float add)
     {
         switch (property) {
@@ -52,7 +52,7 @@ public class HumanProperty
 }
 
 /// <summary>
-/// ”\—Í’l‚Ì–¼‘OB
+/// èƒ½åŠ›å€¤ã®åå‰ã€‚
 /// </summary>
 public enum HumanPropertyName
 {

@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// g‚¤ƒf[ƒ^‚ÌId‚ğ•Û‘¶B
+/// ä½¿ã†ãƒ‡ãƒ¼ã‚¿ã®Idã‚’ä¿å­˜ã€‚
 /// </summary>
 public static class UseDataId
 {

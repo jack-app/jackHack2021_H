@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ƒV[ƒ“‚Ì–¼‘OB
+/// ã‚·ãƒ¼ãƒ³ã®åå‰ã€‚
 /// </summary>
 public enum SceneName
 {

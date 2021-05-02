@@ -1,24 +1,24 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// ƒNƒŠƒbƒN‚µ‚ÄƒV[ƒ“‚ğ•Ï‚¦‚éƒNƒ‰ƒXB
+/// ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã‚·ãƒ¼ãƒ³ã‚’å¤‰ãˆã‚‹ã‚¯ãƒ©ã‚¹ã€‚
 /// </summary>
 public class ClickedSceneChanger : MonoBehaviour
 {
-    /// <value="nextSceneName">Ÿ‚ÌƒV[ƒ“‚Ì–¼‘O </summary>
+    /// <value="nextSceneName">æ¬¡ã®ã‚·ãƒ¼ãƒ³ã®åå‰ </summary>
     [SerializeField]
     private SceneName nextSceneName;
 
-    /// <value="deleteData">Ÿ‚ÌƒV[ƒ“‚Ì–¼‘O </summary>
+    /// <value="deleteData">æ¬¡ã®ã‚·ãƒ¼ãƒ³ã®åå‰ </summary>
     [SerializeField]
     private bool deleteData;
 
     /// <summary>
-    /// ƒNƒŠƒbƒN‚µ‚½‚Æ‚«‚ÌƒCƒxƒ“ƒg‚É“o˜^‚µ‚Ä‚ËB
+    /// ã‚¯ãƒªãƒƒã‚¯ã—ãŸã¨ãã®ã‚¤ãƒ™ãƒ³ãƒˆã«ç™»éŒ²ã—ã¦ã­ã€‚
     /// </summary>
     public void OnClicked()
     {

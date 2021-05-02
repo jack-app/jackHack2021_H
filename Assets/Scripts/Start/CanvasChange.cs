@@ -1,23 +1,23 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ƒLƒƒƒ“ƒoƒX‚ğ•Ï‚¦‚éƒNƒ‰ƒXB
+/// ã‚­ãƒ£ãƒ³ãƒã‚¹ã‚’å¤‰ãˆã‚‹ã‚¯ãƒ©ã‚¹ã€‚
 /// </summary>
 public class CanvasChange : MonoBehaviour
 {
-    /// <value="turnOff">Œ©‚¦‚È‚­‚·‚éƒLƒƒƒ“ƒpƒXB</value>
+    /// <value="turnOff">è¦‹ãˆãªãã™ã‚‹ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ã€‚</value>
     [SerializeField]
     private List<GameObject> turnOff;
 
-    /// <value="turnOn">Œ©‚¦‚é‚æ‚¤‚É‚·‚éƒLƒƒƒ“ƒpƒXB</value>
+    /// <value="turnOn">è¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ã€‚</value>
     [SerializeField]
     private List<GameObject> turnOn;
 
 
     /// <summary>
-    /// ƒNƒŠƒbƒN‚µ‚½‚Æ‚«‚ÌƒCƒxƒ“ƒg‚É“o˜^‚µ‚Ä‚ËB
+    /// ã‚¯ãƒªãƒƒã‚¯ã—ãŸã¨ãã®ã‚¤ãƒ™ãƒ³ãƒˆã«ç™»éŒ²ã—ã¦ã­ã€‚
     /// </summary>
     public void OnClicked()
     {

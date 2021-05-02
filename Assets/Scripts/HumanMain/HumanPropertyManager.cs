@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -6,18 +6,18 @@ using System;
 using System.IO;
 
 /// <summary>
-/// lŠÔ‚Ì”\—Í’l‚ğŠÄ—B
+/// äººé–“ã®èƒ½åŠ›å€¤ã‚’ç›£ç†ã€‚
 /// </summary>
 public class HumanPropertyManager : MonoBehaviour
 {
     /// <summary>
-    /// lŠÔ‚Ì”\—Í’lB
+    /// äººé–“ã®èƒ½åŠ›å€¤ã€‚
     /// </summary>
     public HumanProperty Property { get { return property; } set { SaveData(); property = value;} }
     private HumanProperty property;
 
     /// <summary>
-    /// ƒNƒI[ƒ^[‚ªI‚í‚Á‚½‚©B
+    /// ã‚¯ã‚ªãƒ¼ã‚¿ãƒ¼ãŒçµ‚ã‚ã£ãŸã‹ã€‚
     /// </summary>
     public bool isFinished { get { return (lastUpdate - startTime).TotalDays > 60; } }
     private DateTime lastUpdate;
@@ -30,7 +30,7 @@ public class HumanPropertyManager : MonoBehaviour
 
     void Update()
     {
-        // “ú•t‚ğŠm”F‚µ‚Ä“ú‚ğ’´‚¦‚½•ª”\—Íƒ_ƒEƒ“B
+        // æ—¥ä»˜ã‚’ç¢ºèªã—ã¦æ—¥ã‚’è¶…ãˆãŸåˆ†èƒ½åŠ›ãƒ€ã‚¦ãƒ³ã€‚
         for(var i = 0; i + 1 <= (DateTime.Today - lastUpdate.Date).TotalDays; i++)
         {
             Degrade();
@@ -39,7 +39,7 @@ public class HumanPropertyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒf[ƒ^‚ğ•Û‘¶B
+    /// ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã€‚
     /// </summary>
     private void SaveData()
     {
@@ -49,7 +49,7 @@ public class HumanPropertyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒf[ƒ^‚Ì“Ç‚İ‚İB
+    /// ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿ã€‚
     /// </summary>
     private void LoadData()
     {
@@ -57,7 +57,7 @@ public class HumanPropertyManager : MonoBehaviour
         var content = File.ReadAllText(path).Split(',');
         if(content[0] != "0")
         {
-            Debug.LogError("l‚Ì”\—Í‚¶‚á‚È‚¢I");
+            Debug.LogError("äººã®èƒ½åŠ›ã˜ã‚ƒãªã„ï¼");
             return;
         }
 
@@ -69,7 +69,7 @@ public class HumanPropertyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ”\—Í1“ú•ªƒ_ƒEƒ“B
+    /// èƒ½åŠ›1æ—¥åˆ†ãƒ€ã‚¦ãƒ³ã€‚
     /// </summary>
     private void Degrade()
     {
@@ -79,7 +79,7 @@ public class HumanPropertyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒŠƒUƒ‹ƒg‰æ–Ê‚ÖB
+    /// ãƒªã‚¶ãƒ«ãƒˆç”»é¢ã¸ã€‚
     /// </summary>
     private void GoResult()
     {
