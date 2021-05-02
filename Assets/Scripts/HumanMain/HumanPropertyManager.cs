@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 using System.IO;
-
+using UnityEngine.UI;
 /// <summary>
 /// 人間の能力値を監理。
 /// </summary>
@@ -22,6 +22,7 @@ public class HumanPropertyManager : MonoBehaviour
     public bool isFinished { get { return (lastUpdate - startTime).TotalDays > 60; } }
     private DateTime lastUpdate;
     private DateTime startTime;
+    public Button ResultBtn;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class HumanPropertyManager : MonoBehaviour
             Degrade();
         }
         lastUpdate = DateTime.Now;
+        ResultBtn.interactable = isFinished;
     }
 
     /// <summary>
