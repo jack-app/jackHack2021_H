@@ -15,9 +15,11 @@ public class CreateHumanData : MonoBehaviour
     /// </summary>
     public void OnClicked()
     {
-        var path = Path.Combine(Application.persistentDataPath, Guid.NewGuid().ToString() + ".data");
+        var id = Guid.NewGuid().ToString();
+        var path = Path.Combine(Application.persistentDataPath, id + ".data");
         var content = "0," + DateTime.Now.ToString() + ",60,60,60";
         File.WriteAllText(path, content, System.Text.Encoding.UTF8);
+        UseDataId.id = id;
         SceneManager.LoadScene(SceneName.HumanMain.ToString());
     }
 }
