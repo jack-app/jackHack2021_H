@@ -20,6 +20,6 @@ public class CreateHumanData : MonoBehaviour
         var content = "0," + DateTime.Now.ToString() + ",60,60,60";
         File.WriteAllText(path, content, System.Text.Encoding.UTF8);
         UseDataId.id = id;
-        SceneManager.LoadScene(SceneName.HumanMain.ToString());
+        SceneManager.LoadScene(SceneName.HumanStory.ToString());
     }
 }

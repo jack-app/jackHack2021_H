@@ -64,11 +64,11 @@ public class HumanPropertyManager : MonoBehaviour
 
     private void ApplyMussle()
     {
-        if (Property.Arm < 0.6f)
+        if (Property.Arm < 60)
         {
             foreach (var arm in armsDown)
             {
-                arm.Factor = (0.6f - Property.Arm) / 0.6f;
+                arm.Curvature = (60 - Property.Arm) / 0.6f;
             }
             foreach (var arm in armsUp)
             {
@@ -79,19 +79,19 @@ public class HumanPropertyManager : MonoBehaviour
         {
             foreach (var arm in armsUp)
             {
-                arm.Factor = (Property.Arm - 0.6f) / 0.4f;
+                arm.Factor = (Property.Arm - 60) / 40f;
             }
             foreach (var arm in armsDown)
             {
-                arm.Factor = 0;
+                arm.Curvature = 0;
             }
         }
 
-        if (Property.Middle < 0.6f)
+        if (Property.Middle < 60f)
         {
             foreach (var middle in middlesDown)
             {
-                middle.Factor = (0.6f - Property.Middle) / 0.6f;
+                middle.Curvature = (60 - Property.Middle) / 0.6f;
             }
             foreach (var middle in middlesUp)
             {
@@ -102,19 +102,19 @@ public class HumanPropertyManager : MonoBehaviour
         {
             foreach (var middle in middlesUp)
             {
-                middle.Factor = (Property.Middle - 0.6f) / 0.4f;
+                middle.Factor = (Property.Middle - 60) / 40;
             }
             foreach (var middle in middlesDown)
             {
-                middle.Factor = 0;
+                middle.Curvature = 0;
             }
         }
 
-        if (Property.Leg < 0.6f)
+        if (Property.Leg < 60)
         {
             foreach (var leg in legsDown)
             {
-                leg.Factor = (0.6f - Property.Leg) / 0.6f;
+                leg.Curvature = (60 - Property.Leg) / 0.6f;
             }
             foreach (var leg in legsUp)
             {
@@ -125,11 +125,11 @@ public class HumanPropertyManager : MonoBehaviour
         {
             foreach (var leg in legsUp)
             {
-                leg.Factor = (Property.Leg - 0.6f) / 0.4f;
+                leg.Factor = (Property.Leg - 60) / 40;
             }
             foreach (var leg in legsDown)
             {
-                leg.Factor = 0;
+                leg.Curvature = 0;
             }
         }
     }
@@ -140,7 +140,7 @@ public class HumanPropertyManager : MonoBehaviour
     private void SaveData()
     {
         var path = Path.Combine(Application.persistentDataPath, UseDataId.id + ".data");
-        var content = "0," + startTime + "," + property.ToString();
+        var content = "0," + startTime + "," + property.Arm.ToString() + "," + property.Middle.ToString() + "," + property.Leg.ToString();
         File.WriteAllText(path, content, System.Text.Encoding.UTF8);
     }
 
