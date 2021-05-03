@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.UI;
+using Deform;
 
 /// <summary>
 /// 人間の能力値を監理。
 /// </summary>
+[ExecuteAlways]
 public class HumanPropertyManager : MonoBehaviour
 {
     /// <summary>
@@ -22,6 +25,25 @@ public class HumanPropertyManager : MonoBehaviour
     public bool isFinished { get { return (lastUpdate - startTime).TotalDays > 60; } }
     private DateTime lastUpdate;
     private DateTime startTime;
+    public Button ResultBtn;
+
+    [SerializeField]
+    private List<SpherifyDeformer> armsUp;
+
+    [SerializeField]
+    private List<SquashAndStretchDeformer> armsDown;
+
+    [SerializeField]
+    private List<SpherifyDeformer> middlesUp;
+
+    [SerializeField]
+    private List<SquashAndStretchDeformer> middlesDown;
+
+    [SerializeField]
+    private List<SpherifyDeformer> legsUp;
+
+    [SerializeField]
+    private List<SquashAndStretchDeformer> legsDown;
 
     void Start()
     {
@@ -35,7 +57,82 @@ public class HumanPropertyManager : MonoBehaviour
         {
             Degrade();
         }
+        ApplyMussle();
+
         lastUpdate = DateTime.Now;
+        ResultBtn.interactable = isFinished;
+    }
+
+    private void ApplyMussle()
+    {
+        if (Property.Arm < 0.6f)
+        {
+            foreach (var arm in armsDown)
+            {
+                arm.Factor = (0.6f - Property.Arm) / 0.6f;
+            }
+            foreach (var arm in armsUp)
+            {
+                arm.Factor = 0;
+            }
+        }
+        else
+        {
+            foreach (var arm in armsUp)
+            {
+                arm.Factor = (Property.Arm - 0.6f) / 0.4f;
+            }
+            foreach (var arm in armsDown)
+            {
+                arm.Factor = 0;
+            }
+        }
+
+        if (Property.Middle < 0.6f)
+        {
+            foreach (var middle in middlesDown)
+            {
+                middle.Factor = (0.6f - Property.Middle) / 0.6f;
+            }
+            foreach (var middle in middlesUp)
+            {
+                middle.Factor = 0;
+            }
+        }
+        else
+        {
+            foreach (var middle in middlesUp)
+            {
+                middle.Factor = (Property.Middle - 0.6f) / 0.4f;
+            }
+            foreach (var middle in middlesDown)
+            {
+                middle.Factor = 0;
+            }
+        }
+
+        if (Property.Leg < 0.6f)
+        {
+            foreach (var leg in legsDown)
+            {
+                leg.Factor = (0.6f - Property.Leg) / 0.6f;
+            }
+            foreach (var leg in legsUp)
+            {
+                leg.Factor = 0;
+            }
+        }
+        else
+        {
+            foreach (var leg in legsUp)
+            {
+                leg.Factor = (Property.Leg - 0.6f) / 0.4f;
+            }
+            foreach (var leg in legsDown)
+            {
+                leg.Factor = 0;
+            }
+        }
     }
 
     /// <summary>
@@ -45,7 +142,7 @@ public class HumanPropertyManager : MonoBehaviour
     {
         var path = Path.Combine(Application.persistentDataPath, UseDataId.id + ".data");
         var content = "0," + startTime + "," + property.ToString();
-        File.WriteAllText(path, content);
+        File.WriteAllText(path, content, System.Text.Encoding.UTF8);
     }
 
     /// <summary>
@@ -54,7 +151,7 @@ public class HumanPropertyManager : MonoBehaviour
     private void LoadData()
     {
         var path = Path.Combine(Application.persistentDataPath, UseDataId.id + ".data");
-        var content = File.ReadAllText(path).Split(',');
+        var content = File.ReadAllText(path, System.Text.Encoding.UTF8).Split(',');
         if(content[0] != "0")
         {
             Debug.LogError("人の能力じゃない！");
@@ -81,9 +178,15 @@ public class HumanPropertyManager : MonoBehaviour
     /// <summary>
     /// リザルト画面へ。
     /// </summary>
-    private void GoResult()
+    public void GoResult()
     {
         SaveData();
-        SceneManager.LoadScene("HumanResult");
+        SceneManager.LoadScene(SceneName.HumanResult.ToString());
+    }
+
+    private void NextDay()
+    {
+        startTime = startTime.AddDays(-1);
+        Debug.LogWarning("世界が改変されました。");
     }
 }
