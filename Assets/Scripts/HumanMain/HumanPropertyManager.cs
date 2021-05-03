@@ -16,7 +16,7 @@ public class HumanPropertyManager : MonoBehaviour
     /// <summary>
     /// 人間の能力値。
     /// </summary>
-    public HumanProperty Property { get { return property; } set { SaveData(); property = value;} }
+    public HumanProperty Property { get { return property; } set { SaveData(); ApplyMussle(); property = value;} }
     private HumanProperty property;
 
     /// <summary>
@@ -57,7 +57,6 @@ public class HumanPropertyManager : MonoBehaviour
         {
             Degrade();
         }
-        ApplyMussle();
 
         lastUpdate = DateTime.Now;
         ResultBtn.interactable = isFinished;
@@ -173,6 +172,7 @@ public class HumanPropertyManager : MonoBehaviour
         property.AddProperty(HumanPropertyName.Arm, -5);
         property.AddProperty(HumanPropertyName.Middle, -5);
         property.AddProperty(HumanPropertyName.Leg, -5);
+        Property = property;
     }
 
     /// <summary>
