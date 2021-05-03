@@ -141,7 +141,7 @@ public class HumanPropertyManager : MonoBehaviour
     private void SaveData()
     {
         var path = Path.Combine(Application.persistentDataPath, UseDataId.id + ".data");
-        var content = "0," + startTime + "," + property.ToString();
+        var content = "0," + startTime + "," + property.Arm.ToString() + "," + property.Middle.ToString() + "," + property.Leg.ToString();
         File.WriteAllText(path, content, System.Text.Encoding.UTF8);
     }
 
