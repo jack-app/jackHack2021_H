@@ -12,7 +12,7 @@ public class HumanPropertyMangerEditor : Editor
 
         if(GUILayout.Button("Next day"))
         {
-            ((HumanPropertyManager)target).SendMessage("NextDay", null, SendMessageOptions.DontRequireReceiver);
+            ((HumanPropertyManager)target).NextDay();
         }
     }
 }

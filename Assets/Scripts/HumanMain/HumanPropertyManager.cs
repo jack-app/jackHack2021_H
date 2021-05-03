@@ -10,7 +10,6 @@ using Deform;
 /// <summary>
 /// 人間の能力値を監理。
 /// </summary>
-[ExecuteAlways]
 public class HumanPropertyManager : MonoBehaviour
 {
     /// <summary>
@@ -52,14 +51,16 @@ public class HumanPropertyManager : MonoBehaviour
 
     void Update()
     {
-        // 日付を確認して日を超えた分能力ダウン。
-        for(var i = 0; i + 1 <= (DateTime.Today - lastUpdate.Date).TotalDays; i++)
+        if (property != null && lastUpdate != default)
         {
-            Degrade();
+            // 日付を確認して日を超えた分能力ダウン。
+            for (var i = 0; i + 1 <= (DateTime.Today - lastUpdate.Date).TotalDays; i++)
+            {
+                Degrade();
+            }
+            ResultBtn.interactable = isFinished;
         }
-
         lastUpdate = DateTime.Now;
-        ResultBtn.interactable = isFinished;
     }
 
     private void ApplyMussle()
@@ -68,7 +69,7 @@ public class HumanPropertyManager : MonoBehaviour
         {
             foreach (var arm in armsDown)
             {
-                arm.Curvature = (60 - Property.Arm) / 0.6f;
+                arm.Factor = (60 - Property.Arm) / 60f;
             }
             foreach (var arm in armsUp)
             {
@@ -83,7 +84,7 @@ public class HumanPropertyManager : MonoBehaviour
             }
             foreach (var arm in armsDown)
             {
-                arm.Curvature = 0;
+                arm.Factor = 0;
             }
         }
 
@@ -91,7 +92,7 @@ public class HumanPropertyManager : MonoBehaviour
         {
             foreach (var middle in middlesDown)
             {
-                middle.Curvature = (60 - Property.Middle) / 0.6f;
+                middle.Factor = (60 - Property.Middle) / 60f;
             }
             foreach (var middle in middlesUp)
             {
@@ -106,7 +107,7 @@ public class HumanPropertyManager : MonoBehaviour
             }
             foreach (var middle in middlesDown)
             {
-                middle.Curvature = 0;
+                middle.Factor = 0;
             }
         }
 
@@ -114,7 +115,7 @@ public class HumanPropertyManager : MonoBehaviour
         {
             foreach (var leg in legsDown)
             {
-                leg.Curvature = (60 - Property.Leg) / 0.6f;
+                leg.Factor = (60 - Property.Leg) / 60f;
             }
             foreach (var leg in legsUp)
             {
@@ -162,6 +163,7 @@ public class HumanPropertyManager : MonoBehaviour
         property.AddProperty(HumanPropertyName.Arm, float.Parse(content[2]));
         property.AddProperty(HumanPropertyName.Middle, float.Parse(content[3]));
         property.AddProperty(HumanPropertyName.Leg, float.Parse(content[4]));
+        Property = property;
     }
 
     /// <summary>
@@ -184,9 +186,10 @@ public class HumanPropertyManager : MonoBehaviour
         SceneManager.LoadScene(SceneName.HumanResult.ToString());
     }
 
-    private void NextDay()
+    public void NextDay()
     {
         startTime = startTime.AddDays(-1);
+        Degrade();
         Debug.LogWarning("世界が改変されました。");
     }
 }
